@@ -1,0 +1,8 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: eso-test-01
+  namespace: eso-test-01
+spec:
+  targetNamespaces:
+    - eso-test-01

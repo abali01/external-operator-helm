@@ -1,0 +1,8 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: hello-kubernetes
+  namespace: eso-test-01
+imagePullSecrets:
+  - name: dockercreds
+

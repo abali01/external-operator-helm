@@ -1,0 +1,20 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: hello-kubernetes-hello-world
+  namespace: eso-test-01
+  labels:
+    app.kubernetes.io/instance: hello-world
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/version: '1.10'
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  host: hello-kubernetes-hello-world-eso-test-01.apps.ocp4.example.com
+  to:
+    kind: Service
+    name: hello-kubernetes-hello-world
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None

@@ -1,0 +1,31 @@
+kind: Service
+apiVersion: v1
+metadata:
+  annotations:
+    meta.helm.sh/release-name: psql-test
+    meta.helm.sh/release-namespace: eso-test-01
+  name: psql-test-postgresql-hl
+  namespace: eso-test-01
+  labels:
+    app.kubernetes.io/component: primary
+    app.kubernetes.io/instance: psql-test
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: postgresql
+    helm.sh/chart: postgresql-11.1.26
+    service.alpha.kubernetes.io/tolerate-unready-endpoints: 'true'
+spec:
+  ports:
+    - name: tcp-postgresql
+      protocol: TCP
+      port: 5432
+      targetPort: tcp-postgresql
+  selector:
+    app.kubernetes.io/component: primary
+    app.kubernetes.io/instance: psql-test
+    app.kubernetes.io/name: postgresql
+  clusterIP: None
+  clusterIPs:
+    - None
+  type: ClusterIP
+  sessionAffinity: None
+  publishNotReadyAddresses: true

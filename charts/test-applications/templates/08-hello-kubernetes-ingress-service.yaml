@@ -1,0 +1,29 @@
+kind: Service
+apiVersion: v1
+metadata:
+  annotations:
+    meta.helm.sh/release-name: hello-world
+    meta.helm.sh/release-namespace: hello-kubernetes
+  name: hello-kubernetes-hello-world
+  namespace: eso-test-01
+  labels:
+    app.kubernetes.io/instance: hello-world
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: hello-kubernetes
+    app.kubernetes.io/version: '1.10'
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: http
+      nodePort: 31198
+  selector:
+    app.kubernetes.io/instance: hello-world
+    app.kubernetes.io/name: hello-kubernetes
+  clusterIP: 172.30.237.44
+  clusterIPs:
+    - 172.30.237.44
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
