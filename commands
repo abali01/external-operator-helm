@@ -1,0 +1,3 @@
+helm install external-secrets-operator charts/external-secrets-operator/
+helm install test-applications charts/test-applications/
+helm install aws-resources charts/aws-resources/
