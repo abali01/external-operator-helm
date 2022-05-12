@@ -77,7 +77,7 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           terminationMessagePolicy: File
           image: '040913/hello-kubernetes:1.10'
       serviceAccount: hello-kubernetes
